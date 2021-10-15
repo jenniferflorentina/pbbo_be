@@ -8,12 +8,12 @@ import (
 
 func Find() (*[]model.User, error) {
 	var users []model.User
-	err := db.Orm.Find(&users)
-	if err != nil {
-		return nil, err
+	result := db.Orm.Find(&users)
+	if result.Error != nil {
+		return nil, result.Error
 	}
 
-	if users == nil {
+	if result.RowsAffected == 0 {
 		return nil, errors.New("no users found")
 	}
 
@@ -21,9 +21,9 @@ func Find() (*[]model.User, error) {
 }
 
 func Create(user *model.User) error {
-	_, err := db.Orm.Insert(user)
-	if err != nil {
-		return err
+	result := db.Orm.Create(user)
+	if result.Error != nil {
+		return result.Error
 	}
 
 	return nil

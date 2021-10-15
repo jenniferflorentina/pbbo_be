@@ -3,11 +3,10 @@ package base
 import "time"
 
 type Model struct {
-	Id        int64
-	CreatedAt time.Time `xorm:"created"`
+	CreatedAt time.Time `gorm:"created"`
 	CreatedBy int64
-	UpdatedAt time.Time `xorm:"updated"`
+	UpdatedAt time.Time `gorm:"updated"`
 	UpdatedBy int64
-	DeletedAt time.Time `xorm:"deleted"`
+	DeletedAt time.Time `gorm:"deleted"`
 	DeletedBy int64
 }
