@@ -6,12 +6,12 @@ import (
 
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
-	"xorm.io/xorm"
-	"xorm.io/xorm/caches"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 var (
-	Orm *xorm.Engine
+	Orm *gorm.DB
 )
 
 func init() {
@@ -20,13 +20,10 @@ func init() {
 		os.Getenv("DB_HOST"), os.Getenv("DB_PORT"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_NAME"))
 
 	var err error
-	Orm, err = xorm.NewEngine("postgres", connStr)
+	Orm, err = gorm.Open(postgres.Open(connStr), &gorm.Config{})
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	migrate()
-
-	cacher := caches.NewLRUCacher(caches.NewMemoryStore(), 1000)
-	Orm.SetDefaultCacher(cacher)
 }

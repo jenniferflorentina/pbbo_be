@@ -13,7 +13,7 @@ var (
 
 func seed() {
 	var s seeds.Seed
-	s.SeedCountry()
+	s.SeedPM()
 }
 
 func StartApplication() {
