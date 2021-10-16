@@ -82,3 +82,61 @@ func CreatePaymentMethod(c *fiber.Ctx) error {
 	})
 	return nil
 }
+
+func UpdatePaymentMethod(c *fiber.Ctx) error {
+	id, err := strconv.ParseInt(c.Params("id"), 10, 64)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+	updateDto := new(dto.UpdatePaymentMethodDTO)
+	err = c.BodyParser(updateDto)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	err = validate.Validate(&updateDto)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	pm, err := service.UpdatePaymentMethod(updateDto, id)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	var DTO dto.PaymentMethodDTO
+	mapper.Map(pm, &DTO)
+
+	_ = c.JSON(response.HTTPResponse{
+		Code: http.StatusOK,
+		Data: DTO,
+	})
+	return nil
+}
+
+func DeletePaymentMethod(c *fiber.Ctx) error {
+	id, err := strconv.ParseInt(c.Params("id"), 10, 64)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	pm, err := service.DeletePaymentMethod(id)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	var DTO dto.PaymentMethodDTO
+	mapper.Map(pm, &DTO)
+
+	_ = c.JSON(response.HTTPResponse{
+		Code: http.StatusOK,
+		Data: DTO,
+	})
+	return nil
+}

@@ -42,3 +42,23 @@ func CreatePaymentMethod(pm *model.PaymentMethod) error {
 
 	return nil
 }
+
+func UpdatePaymentMethod(pm *model.PaymentMethod) (*model.PaymentMethod, error) {
+	result := db.Orm.Save(&pm)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return pm, nil
+}
+
+func DeletePaymentMethod(pm *model.PaymentMethod) (*model.PaymentMethod, error) {
+	if pm.Payment != nil {
+		return nil, errors.New("can't delete cause of relational")
+	}
+	result := db.Orm.Delete(&pm)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	return pm, nil
+}
