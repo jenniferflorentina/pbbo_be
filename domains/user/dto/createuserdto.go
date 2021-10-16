@@ -1,10 +1,11 @@
 package dto
 
 type CreateUserDTO struct {
-	CountryId int64  `json:"countryId" validate:"gt=0"`
-	Email     string `json:"email" validate:"format=email & empty=false"`
-	Password  string `json:"password" validate:"empty=false"`
-	FirstName string `json:"firstName" validate:"empty=false"`
-	LastName  string `json:"lastName" validate:"empty=false"`
-	Role      string `json:"role" validate:"empty=false"`
+	Username   string `json:"username" validate:"empty=false"`
+	Password   string `json:"password" validate:"empty=false"`
+	Nama       string `json:"nama"`
+	Dob        string `json:"dob"`
+	Alamat     string `json:"alamat"`
+	Telepon    string `json:"telepon"`
+	Email      string `json:"email" validate:"empty=false"`
 }

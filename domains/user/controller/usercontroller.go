@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 	"tubespbbo/domains/user/dto"
 	"tubespbbo/domains/user/model"
 	"tubespbbo/domains/user/service"
@@ -13,8 +14,8 @@ import (
 	"gopkg.in/dealancer/validate.v2"
 )
 
-func Find(c *fiber.Ctx) error {
-	users, err := service.Find()
+func FindUser(c *fiber.Ctx) error {
+	users, err := service.FindUser()
 	if err != nil {
 		e.HandleErr(c, err)
 		return nil
@@ -30,7 +31,29 @@ func Find(c *fiber.Ctx) error {
 	return nil
 }
 
-func Create(c *fiber.Ctx) error {
+func FindOneUser(c *fiber.Ctx) error {
+	id, err := strconv.ParseInt(c.Params("id"), 10, 64)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+	user, err := service.FindOneUser(id)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	var DTO dto.UserDTO
+	mapper.Map(user, &DTO)
+
+	_ = c.JSON(response.HTTPResponse{
+		Code: http.StatusOK,
+		Data: DTO,
+	})
+	return nil
+}
+
+func CreateUser(c *fiber.Ctx) error {
 	createDto := new(dto.CreateUserDTO)
 	err := c.BodyParser(createDto)
 	if err != nil {
@@ -47,7 +70,7 @@ func Create(c *fiber.Ctx) error {
 	var user model.User
 	mapper.Map(createDto, &user)
 
-	err = service.Create(&user)
+	err = service.CreateUser(&user)
 	if err != nil {
 		e.HandleErr(c, err)
 		return nil
@@ -56,6 +79,64 @@ func Create(c *fiber.Ctx) error {
 	_ = c.JSON(response.HTTPResponse{
 		Code: http.StatusOK,
 		Data: user,
+	})
+	return nil
+}
+
+func UpdateUser(c *fiber.Ctx) error {
+	id, err := strconv.ParseInt(c.Params("id"), 10, 64)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+	updateDto := new(dto.UpdateUserDTO)
+	err = c.BodyParser(updateDto)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	err = validate.Validate(&updateDto)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	user, err := service.UpdateUser(updateDto, id)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	var DTO dto.UserDTO
+	mapper.Map(user, &DTO)
+
+	_ = c.JSON(response.HTTPResponse{
+		Code: http.StatusOK,
+		Data: DTO,
+	})
+	return nil
+}
+
+func DeleteUser(c *fiber.Ctx) error {
+	id, err := strconv.ParseInt(c.Params("id"), 10, 64)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	user, err := service.DeleteUser(id)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
+
+	var DTO dto.UserDTO
+	mapper.Map(user, &DTO)
+
+	_ = c.JSON(response.HTTPResponse{
+		Code: http.StatusOK,
+		Data: DTO,
 	})
 	return nil
 }
