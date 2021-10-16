@@ -8,7 +8,7 @@ import (
 
 func FindPayment() (*[]model.Payment, error) {
 	var payments []model.Payment
-	result := db.Orm.Find(&payments).Preload("PaymentMethod").Find(&payments)
+	result := db.Orm.Find(&payments).Preload("PaymentMethod").Find(&payments).Not("deleted_at = ?", nil)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -22,7 +22,7 @@ func FindPayment() (*[]model.Payment, error) {
 
 func FindOnePayment(id int64) (*model.Payment, error) {
 	var payment model.Payment
-	result := db.Orm.First(&payment, id)
+	result := db.Orm.First(&payment, id).Preload("PaymentMethod").First(&payment, id)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -41,4 +41,21 @@ func CreatePayment(pm *model.Payment) error {
 	}
 
 	return nil
+}
+
+func UpdatePayment(pm *model.Payment) (*model.Payment, error) {
+	result := db.Orm.Save(&pm)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	pm, _ = FindOnePayment(pm.Id)
+	return pm, nil
+}
+
+func DeletePayment(pm *model.Payment) (*model.Payment, error) {
+	result := db.Orm.Delete(&pm)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return pm, nil
 }
