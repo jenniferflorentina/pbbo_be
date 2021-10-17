@@ -7,8 +7,11 @@ import (
 )
 
 func RouteUsers(e *fiber.App) {
-	e.Get("/users", controller.Find)
-	e.Post("/users", controller.Create)
+	e.Get("/users", controller.FindUser)
+	e.Get("/users/:id", controller.FindOneUser)
+	e.Post("/users", controller.CreateUser)
+	e.Put("/users/:id", controller.UpdateUser)
+	e.Delete("/users/:id", controller.DeleteUser)
 
 	//users := e.Group("/users")
 	//{

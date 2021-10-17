@@ -14,6 +14,7 @@ var (
 func seed() {
 	var s seeds.Seed
 	s.SeedPM()
+	s.SeedUser()
 }
 
 func StartApplication() {
