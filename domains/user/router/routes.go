@@ -13,6 +13,8 @@ func RouteUsers(e *fiber.App) {
 	e.Put("/users/:id", controller.UpdateUser)
 	e.Delete("/users/:id", controller.DeleteUser)
 
+	e.Post("/login", controller.Login)
+
 	//users := e.Group("/users")
 	//{
 	//	users.GET("", controller.Find)

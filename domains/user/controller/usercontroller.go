@@ -15,6 +15,12 @@ import (
 )
 
 func FindUser(c *fiber.Ctx) error {
+	_, authErr := ExtractTokenMetadata(c)
+	if authErr != nil {
+		e.HandleErr(c, authErr)
+		return nil
+	}
+	
 	users, err := service.FindUser()
 	if err != nil {
 		e.HandleErr(c, err)

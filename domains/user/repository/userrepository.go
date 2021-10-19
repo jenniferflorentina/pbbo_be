@@ -4,6 +4,7 @@ import (
 	"errors"
 	"tubespbbo/db"
 	"tubespbbo/domains/user/model"
+
 )
 
 func FindUser() (*[]model.User, error) {
@@ -31,6 +32,12 @@ func FindOneUser(id int64) (*model.User, error) {
 		return nil, errors.New("no user found")
 	}
 
+	return &user, nil
+}
+
+func FindUserByUsername(username string) (*model.User, error) {
+	var user model.User
+	_ = db.Orm.Where("username = ?", username).First(&user)
 	return &user, nil
 }
 
