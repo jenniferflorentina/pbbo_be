@@ -15,6 +15,7 @@ func seed() {
 	var s seeds.Seed
 	s.SeedPM()
 	s.SeedUser()
+	s.SeedProduct()
 }
 
 func StartApplication() {

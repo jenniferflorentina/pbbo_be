@@ -2,6 +2,7 @@ package model
 
 import (
 	"tubespbbo/base"
+	modelExpense "tubespbbo/domains/expense/model"
 )
 
 type User struct {
@@ -14,7 +15,8 @@ type User struct {
 	Tipe       int
 	Alamat     string `gorm:"varchar(50)"`
 	Telepon    string `gorm:"varchar(15)"`
-	Email      string `gorm:"varchar(100) unique=true"`
+	Email      string 		 `gorm:"varchar(100) unique=true"`
+	Expenses    []modelExpense.Expense	 `gorm:"ForeignKey:UserId;references:Id"`
 }
 
 func init() {
