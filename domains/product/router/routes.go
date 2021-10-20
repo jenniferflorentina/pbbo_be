@@ -1,7 +1,7 @@
 package router
 
 import (
-	"tubespbbo/domains/pruduct/controller"
+	"tubespbbo/domains/product/controller"
 
 	"github.com/gofiber/fiber/v2"
 )

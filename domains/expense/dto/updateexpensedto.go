@@ -1,9 +1,10 @@
 package dto
 
 type UpdateExpenseDTO struct {
-	Nama          string   `json:"Nama"`
-	ReleaseDate   string   `json:"ReleaseDate"`
-	Quantity      float32  `json:"Quantity"`
-	Category	  int64    `json:"Category"`
-	Description   string   `json:"Description"`
+	UserId      int64   `json:"idUser"`
+	Nama        string  `json:"nama"`
+	ReleaseDate string  `json:"releaseDate"`
+	Quantity    float32 `json:"quantity"`
+	Category    int64   `json:"category"`
+	Description string  `json:"description"`
 }

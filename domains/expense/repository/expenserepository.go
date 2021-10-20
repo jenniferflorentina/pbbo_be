@@ -8,7 +8,7 @@ import (
 
 func FindExpense() (*[]model.Expense, error) {
 	var expenses []model.Expense
-	result := db.Orm.Find(&pexpenses)
+	result := db.Orm.Find(&expenses)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -51,10 +51,7 @@ func UpdateExpense(expenses *model.Expense) (*model.Expense, error) {
 	return expenses, nil
 }
 
-func DeleteExpense(expenses *model.PExpense) (*model.Expense, error) {
-	if expenses.Payment != nil {
-		return nil, errors.New("can't delete cause of relational")
-	}
+func DeleteExpense(expenses *model.Expense) (*model.Expense, error) {
 	result := db.Orm.Delete(&expenses)
 	if result.Error != nil {
 		return nil, result.Error
