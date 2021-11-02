@@ -16,6 +16,9 @@ func seed() {
 	s.SeedPM()
 	s.SeedUser()
 	s.SeedProduct()
+	s.SeedTransaction()
+	s.SeedPayment()
+	s.SeedTD()
 }
 
 func StartApplication() {

@@ -2,7 +2,7 @@ package seeds
 
 import (
 	"tubespbbo/db"
-	"tubespbbo/domains/payment/model"
+	"tubespbbo/modules/model"
 )
 
 func (s *Seed) SeedPayment() {
@@ -17,6 +17,7 @@ func (s *Seed) SeedPayment() {
 	paymentMethods := make([]model.Payment, 3)
 	paymentMethods[0] = model.Payment{
 		Id:              1,
+		TransaksiId:     1,
 		PaymentMethodId: 1,
 		Status:          "Lunas",
 		NoRekening:      "987654321123",
@@ -24,6 +25,7 @@ func (s *Seed) SeedPayment() {
 	}
 	paymentMethods[1] = model.Payment{
 		Id:              2,
+		TransaksiId:     2,
 		PaymentMethodId: 2,
 		Status:          "Pending",
 		NoRekening:      "085278633421",
@@ -31,6 +33,7 @@ func (s *Seed) SeedPayment() {
 	}
 	paymentMethods[2] = model.Payment{
 		Id:              3,
+		TransaksiId:     3,
 		PaymentMethodId: 3,
 		Status:          "Belum Bayar",
 		NoRekening:      "27852684",

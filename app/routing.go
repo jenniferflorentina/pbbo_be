@@ -1,12 +1,15 @@
 package app
 
 import (
-	rPayment "tubespbbo/domains/payment/router"
-	rUser "tubespbbo/domains/user/router"
+	r "tubespbbo/modules/router"
 )
 
 func mapURLs() {
-	rUser.RouteUsers(router)
-	rPayment.RoutePaymentMethods(router)
-	rPayment.RoutePayments(router)
+	r.RouteUsers(router)
+	r.RoutePaymentMethods(router)
+	r.RoutePayments(router)
+	r.RouteExpenses(router)
+	r.RouteProducts(router)
+	r.RouteTransactionMethods(router)
+	r.RouteTransactions(router)
 }

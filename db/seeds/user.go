@@ -2,7 +2,7 @@ package seeds
 
 import (
 	"tubespbbo/db"
-	"tubespbbo/domains/user/model"
+	"tubespbbo/modules/model"
 )
 
 func (s *Seed) SeedUser() {

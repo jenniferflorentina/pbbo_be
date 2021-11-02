@@ -2,7 +2,7 @@ package seeds
 
 import (
 	"tubespbbo/db"
-	"tubespbbo/domains/payment/model"
+	"tubespbbo/modules/model"
 )
 
 func (s *Seed) SeedPM() {
