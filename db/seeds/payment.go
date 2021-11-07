@@ -16,27 +16,24 @@ func (s *Seed) SeedPayment() {
 
 	paymentMethods := make([]model.Payment, 3)
 	paymentMethods[0] = model.Payment{
-		Id:              1,
-		TransaksiId:     1,
+		TransactionId:     1,
 		PaymentMethodId: 1,
 		Status:          "Lunas",
-		NoRekening:      "987654321123",
+		AccountNumber:      "987654321123",
 		Amount:          50000,
 	}
 	paymentMethods[1] = model.Payment{
-		Id:              2,
-		TransaksiId:     2,
+		TransactionId:     2,
 		PaymentMethodId: 2,
 		Status:          "Pending",
-		NoRekening:      "085278633421",
+		AccountNumber:      "085278633421",
 		Amount:          40000,
 	}
 	paymentMethods[2] = model.Payment{
-		Id:              3,
-		TransaksiId:     3,
+		TransactionId:     3,
 		PaymentMethodId: 3,
 		Status:          "Belum Bayar",
-		NoRekening:      "27852684",
+		AccountNumber:      "27852684",
 		Amount:          300000,
 	}
 

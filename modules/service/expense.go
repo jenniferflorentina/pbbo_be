@@ -26,8 +26,8 @@ func UpdateExpense(updateDto *dto.UpdateExpenseDTO, id int64) (*model.Expense, e
 	if updateDto.UserId != 0 {
 		pm.UserId = updateDto.UserId
 	}
-	if updateDto.Nama != "" {
-		pm.Nama = updateDto.Nama
+	if updateDto.Name != "" {
+		pm.Name = updateDto.Name
 	}
 	if updateDto.ReleaseDate != "" {
 		pm.ReleaseDate = updateDto.ReleaseDate

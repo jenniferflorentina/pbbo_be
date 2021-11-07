@@ -17,20 +17,20 @@ func (s *Seed) SeedTransaction() {
 	Transactions := make([]model.Transaction, 3)
 	Transactions[0] = model.Transaction{
 		UserId:           1,
-		TanggalTransaksi: "2021-10-15",
-		NoResi:           "111222333",
+		TransactionDate: "2021-10-15",
+		ReceiptNumber:           "111222333",
 		Status:           "Selesai",
 	}
 	Transactions[1] = model.Transaction{
 		UserId:           2,
-		TanggalTransaksi: "2021-10-16",
-		NoResi:           "111222444",
+		TransactionDate: "2021-10-16",
+		ReceiptNumber:           "111222444",
 		Status:           "Proses",
 	}
 	Transactions[2] = model.Transaction{
 		UserId:           3,
-		TanggalTransaksi: "2021-10-17",
-		NoResi:           "111222555",
+		TransactionDate: "2021-10-17",
+		ReceiptNumber:           "111222555",
 		Status:           "Belum Proses",
 	}
 

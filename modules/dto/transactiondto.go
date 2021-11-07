@@ -6,11 +6,11 @@ import (
 
 type TransactionDTO struct {
 	base.DTO
-	UserId             int64                   `json:"idUser"`
-	PembayaranId       int64                   `json:"idPembayaran"`
+	UserId             int64                   `json:"userId"`
+	PaymentId       int64                   `json:"paymentId"`
 	Payment            *PaymentDTO             `json:"payment"`
-	TanggalTransaksi   string                  `json:"tanggalTransaksi"`
-	NoResi             string                  `json:"noResi"`
+	TransactionDate   string                  `json:"transactionDate"`
+	ReceiptNumber             string                  `json:"receiptNumber"`
 	Status             string                  `json:"status"`
 	TransactionDetails []*TransactionDetailDTO `json:"transactionDetails"`
 }

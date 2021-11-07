@@ -6,8 +6,8 @@ import (
 
 type TransactionDetailDTO struct {
 	base.DTO
-	TransaksiId int64       `json:"idTransaksi"`
-	ProductId   int64       `json:"idProduk"`
+	TransactionId int64       `json:"transactionId"`
+	ProductId   int64       `json:"productId"`
 	Product     *ProductDTO `json:"product"`
-	Jumlah      int64       `json:"jumlah"`
+	Quantity      int64       `json:"quantity"`
 }

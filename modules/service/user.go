@@ -23,11 +23,11 @@ func UpdateUser(updateDto *dto.UpdateUserDTO, id int64) (*model.User, error) {
 	if err != nil {
 		return nil, err
 	}
-	if updateDto.Alamat != "" {
-		user.Alamat = updateDto.Alamat
+	if updateDto.Address != "" {
+		user.Address = updateDto.Address
 	}
-	if updateDto.Telepon != "" {
-		user.Telepon = updateDto.Telepon
+	if updateDto.Phone != "" {
+		user.Phone = updateDto.Phone
 	}
 	if updateDto.Username != "" {
 		user.Username = updateDto.Username

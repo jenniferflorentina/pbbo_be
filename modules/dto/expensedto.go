@@ -6,7 +6,7 @@ import (
 
 type ExpenseDTO struct {
 	base.DTO
-	Nama        string  `json:"nama"`
+	Name        string  `json:"name"`
 	ReleaseDate string  `json:"releaseDate"`
 	Quantity    float32 `json:"quantity"`
 	Category    int64   `json:"category"`

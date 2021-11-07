@@ -19,6 +19,7 @@ func seed() {
 	s.SeedTransaction()
 	s.SeedPayment()
 	s.SeedTD()
+	s.SeedExpence()
 }
 
 func StartApplication() {

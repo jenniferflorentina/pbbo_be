@@ -1,7 +1,7 @@
 package dto
 
 type UpdateTransactionDetailDTO struct {
-	TransaksiId int64 `json:"idTransaksi"`
-	ProdukId    int64 `json:"idProduk"`
-	Jumlah      int64 `json:"jumlah"`
+	TransactionId int64 `json:"transactionId"`
+	ProductId    int64 `json:"productId"`
+	Quantity      int64 `json:"quantity"`
 }

@@ -1,6 +1,6 @@
 package dto
 
 type CreatePaymentMethodDTO struct {
-	Nama string `json:"nama" validate:"empty=false"`
-	Kode string `json:"kode" validate:"empty=false"`
+	Name string `json:"name" validate:"empty=false"`
+	Code string `json:"code" validate:"empty=false"`
 }

@@ -7,8 +7,8 @@ import (
 type UserDTO struct {
 	base.DTO
 	Username string `json:"username"`
-	Nama     string `json:"nama"`
-	Alamat   string `json:"alamat"`
-	Telepon  string `json:"telepon"`
+	Name     string `json:"name"`
+	Address   string `json:"address"`
+	Phone  string `json:"phone"`
 	Email    string `json:"email"`
 }
