@@ -6,6 +6,6 @@ import (
 
 type PaymentMethodDTO struct {
 	base.DTO
-	Nama string `json:"nama"`
-	Kode string `json:"kode"`
+	Name string `json:"name"`
+	Code string `json:"code"`
 }

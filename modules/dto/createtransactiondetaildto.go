@@ -1,7 +1,7 @@
 package dto
 
 type CreateTransactionDetailDTO struct {
-	TransaksiId int64 `json:"idTransaksi" validate:"empty=false"`
-	ProdukId    int64 `json:"idProduk" validate:"empty=false"`
-	Jumlah      int64 `json:"jumlah" validate:"empty=false"`
+	TransactionId int64 `json:"transactionId"`
+	ProductId    int64 `json:"productId"`
+	Quantity      int64 `json:"quantity"`
 }

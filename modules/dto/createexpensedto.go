@@ -1,14 +1,10 @@
 package dto
 
-import (
-	"tubespbbo/base"
-)
-
 type CreateExpenseDTO struct {
-	base.DTO
-	Nama        string  `json:"nama" validate:"empty=false"`
+	UserId		int64	`json:"userId"`
+	Name        string  `json:"name" validate:"empty=false"`
 	ReleaseDate string  `json:"releaseDate" validate:"empty=false"`
 	Quantity    float32 `json:"quantity"`
-	Category    int64   `json:"category" validate:"empty=false"`
+	Category    int64   `json:"category"`
 	Description string  `json:"description"`
 }

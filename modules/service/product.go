@@ -23,11 +23,11 @@ func UpdateProduct(updateDto *dto.UpdateProductDTO, id int64) (*model.Product, e
 	if err != nil {
 		return nil, err
 	}
-	if updateDto.Nama != "" {
-		products.Nama = updateDto.Nama
+	if updateDto.Name != "" {
+		products.Name = updateDto.Name
 	}
-	if updateDto.Kode != "" {
-		products.Kode = updateDto.Kode
+	if updateDto.Code != "" {
+		products.Code = updateDto.Code
 	}
 	if updateDto.Description != "" {
 		products.Description = updateDto.Description

@@ -8,7 +8,7 @@ type PaymentDTO struct {
 	base.DTO
 	Status          string            `json:"status"`
 	Amount          float32           `json:"amount"`
-	NoRekening      string            `json:"noRekening"`
+	AccountNumber      string            `json:"accountNumber"`
 	PaymentMethodId int64             `json:"paymentMethodId"`
 	PaymentMethod   *PaymentMethodDTO `json:"paymentMethod"`
 }

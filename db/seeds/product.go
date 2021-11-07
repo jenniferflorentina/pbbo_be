@@ -16,22 +16,22 @@ func (s *Seed) SeedProduct() {
 
 	products := make([]model.Product, 3)
 	products[0] = model.Product{
-		Nama:        "Bunga Tulip",
-		Kode:        "1111",
+		Name:        "Bunga Tulip",
+		Code:        "1111",
 		Description: "Bunga Tulip adalah bunga asli darinegara Belanda",
 		Price:       25000,
 		Quantity:    45,
 	}
 	products[1] = model.Product{
-		Nama:        "Bunga Mawar",
-		Kode:        "1112",
+		Name:        "Bunga Mawar",
+		Code:        "1112",
 		Description: "Bunga Mawar banyak diminati ABG",
 		Price:       20000,
 		Quantity:    85,
 	}
 	products[2] = model.Product{
-		Nama:        "Bunga Anggrek",
-		Kode:        "1113",
+		Name:        "Bunga Anggrek",
+		Code:        "1113",
 		Description: "Bunga Angggrek banyak diminati ibu-ibu",
 		Price:       150000,
 		Quantity:    50,

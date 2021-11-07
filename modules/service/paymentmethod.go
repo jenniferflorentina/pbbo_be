@@ -23,11 +23,11 @@ func UpdatePaymentMethod(updateDto *dto.UpdatePaymentMethodDTO, id int64) (*mode
 	if err != nil {
 		return nil, err
 	}
-	if updateDto.Kode != "" {
-		pm.Kode = updateDto.Kode
+	if updateDto.Code != "" {
+		pm.Code = updateDto.Code
 	}
-	if updateDto.Nama != "" {
-		pm.Nama = updateDto.Nama
+	if updateDto.Name != "" {
+		pm.Name = updateDto.Name
 	}
 	pm, err = repository.UpdatePaymentMethod(pm)
 	if err != nil {

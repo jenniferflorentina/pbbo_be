@@ -1,6 +1,6 @@
 package dto
 
 type UpdatePaymentMethodDTO struct {
-	Nama string `json:"nama"`
-	Kode string `json:"kode"`
+	Name string `json:"name"`
+	Code string `json:"code"`
 }

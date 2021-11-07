@@ -23,8 +23,8 @@ func UpdatePayment(updateDto *dto.UpdatePaymentDTO, id int64) (*model.Payment, e
 	if err != nil {
 		return nil, err
 	}
-	if updateDto.NoRekening != "" {
-		pm.NoRekening = updateDto.NoRekening
+	if updateDto.AccountNumber != "" {
+		pm.AccountNumber = updateDto.AccountNumber
 	}
 	if updateDto.Amount != 0 {
 		pm.Amount = updateDto.Amount

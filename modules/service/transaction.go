@@ -26,11 +26,11 @@ func UpdateTransaction(updateDto *dto.UpdateTransactionDTO, id int64) (*model.Tr
 	if updateDto.UserId != 0 {
 		pm.UserId = updateDto.UserId
 	}
-	if updateDto.TanggalTransaksi != "" {
-		pm.TanggalTransaksi = updateDto.TanggalTransaksi
+	if updateDto.TransactionDate != "" {
+		pm.TransactionDate = updateDto.TransactionDate
 	}
-	if updateDto.NoResi != "" {
-		pm.NoResi = updateDto.NoResi
+	if updateDto.ReceiptNumber != "" {
+		pm.ReceiptNumber = updateDto.ReceiptNumber
 	}
 	if updateDto.Status != "" {
 		pm.Status = updateDto.Status
