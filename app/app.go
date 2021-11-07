@@ -4,6 +4,7 @@ import (
 	"tubespbbo/db/seeds"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	_ "github.com/joho/godotenv/autoload"
 )
 
@@ -25,6 +26,7 @@ func seed() {
 func StartApplication() {
 	seed()
 	router = fiber.New()
+	router.Use(cors.New())
 	mapURLs()
 	_ = router.Listen(":8082")
 }
