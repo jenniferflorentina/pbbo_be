@@ -75,6 +75,11 @@ func CreateUser(c *fiber.Ctx) error {
 
 	var user model.User
 	mapper.Map(createDto, &user)
+	user.Role, err = model.RoleFromString(createDto.Role)
+	if err != nil {
+		e.HandleErr(c, err)
+		return nil
+	}
 
 	err = service.CreateUser(&user)
 	if err != nil {
